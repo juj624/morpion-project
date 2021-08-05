@@ -94,75 +94,20 @@ export default class Game extends React.Component {
             })
         }
     }
-
+    
     victoryConditions = () => {
-        if (this.state.squares[0] === "blue" && this.state.squares[1] === "blue" && this.state.squares[2] === "blue") {
-            let winner = "blue"
-            this.gameOver(winner)
-        } else
-            if (this.state.squares[3] === "blue" && this.state.squares[4] === "blue" && this.state.squares[5] === "blue") {
-                let winner = "blue"
-                this.gameOver(winner)
-            } else
-                if (this.state.squares[6] === "blue" && this.state.squares[7] === "blue" && this.state.squares[8] === "blue") {
-                    let winner = "blue"
-                    this.gameOver(winner)
-                } else
-                    if (this.state.squares[0] === "blue" && this.state.squares[3] === "blue" && this.state.squares[6] === "blue") {
-                        let winner = "blue"
-                        this.gameOver(winner)
-                    } else
-                        if (this.state.squares[1] === "blue" && this.state.squares[4] === "blue" && this.state.squares[7] === "blue") {
-                            let winner = "blue"
-                            this.gameOver(winner)
-                        } else
-                            if (this.state.squares[2] === "blue" && this.state.squares[5] === "blue" && this.state.squares[8] === "blue") {
-                                let winner = "blue"
-                                this.gameOver(winner)
-                            } else
-                                if (this.state.squares[0] === "blue" && this.state.squares[4] === "blue" && this.state.squares[8] === "blue") {
-                                    let winner = "blue"
-                                    this.gameOver(winner)
-                                } else
-                                    if (this.state.squares[2] === "blue" && this.state.squares[4] === "blue" && this.state.squares[6] === "blue") {
-                                        let winner = "blue"
-                                        this.gameOver(winner)
-                                    } else
-                                        if (this.state.squares[0] === "red" && this.state.squares[1] === "red" && this.state.squares[2] === "red") {
-                                            let winner = "red"
-                                            this.gameOver(winner)
-                                        } else
-                                            if (this.state.squares[3] === "red" && this.state.squares[4] === "red" && this.state.squares[5] === "red") {
-                                                let winner = "red"
-                                                this.gameOver(winner)
-                                            } else
-                                                if (this.state.squares[6] === "red" && this.state.squares[7] === "red" && this.state.squares[8] === "red") {
-                                                    let winner = "red"
-                                                    this.gameOver(winner)
-                                                } else
-                                                    if (this.state.squares[0] === "red" && this.state.squares[3] === "red" && this.state.squares[6] === "red") {
-                                                        let winner = "red"
-                                                        this.gameOver(winner)
-                                                    } else
-                                                        if (this.state.squares[1] === "red" && this.state.squares[4] === "red" && this.state.squares[7] === "red") {
-                                                            let winner = "red"
-                                                            this.gameOver(winner)
-                                                        } else
-                                                            if (this.state.squares[2] === "red" && this.state.squares[5] === "red" && this.state.squares[8] === "red") {
-                                                                let winner = "red"
-                                                                this.gameOver(winner)
-                                                            } else
-                                                                if (this.state.squares[0] === "red" && this.state.squares[4] === "red" && this.state.squares[8] === "red") {
-                                                                    let winner = "red"
-                                                                    this.gameOver(winner)
-                                                                } else
-                                                                    if (this.state.squares[2] === "red" && this.state.squares[4] === "red" && this.state.squares[6] === "red") {
-                                                                        let winner = "red"
-                                                                        this.gameOver(winner)
-                                                                    } else if (this.state.turn === 9) {
-                                                                        let winner = "draw"
-                                                                        this.gameOver(winner)
-                                                                    }
+            for ( let i = 0;  i <= 8; i++  ){    
+                    if(i === 0 || i === 3 || i === 6){
+                        if(this.state.squares[i+1] === "blue" && this.state.squares[i+2] === "blue" && this.state.squares[i+3] === "blue" && this.state.squares[i+4] === "blue" && this.state.squares[i+5] === "blue" && this.state.squares[i+6] === "blue" && this.state.squares[i+7] === "blue" && this.state.squares[i+8] === "blue"){
+                            let winner = "red"
+                            this.gameOver(winner)
+            
+                        }else if (this.state.squares[i+1] === "red" && this.state.squares[i+2] === "red" && this.state.squares[i+3] === "red" && this.state.squares[i+4] === "red" && this.state.squares[i+5] === "red" && this.state.squares[i+6] === "red" && this.state.squares[i+7] === "red" && this.state.squares[i+8] === "red"){
+                            let winner = "red"
+                            this.gameOver(winner)
+                        }
+                    }
+            }
     }
     renderShowPlayerTurn() {
         if (this.state.player === "red") {
